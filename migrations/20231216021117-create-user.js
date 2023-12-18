@@ -14,7 +14,7 @@ module.exports = {
         type: Sequelize.STRING
       },
       name: {
-        allowNull: false,
+        allowNull: true,
         type: Sequelize.STRING
       },
       date_of_birth: {
@@ -39,6 +39,9 @@ module.exports = {
       },
       password: {
         allowNull: false,
+        type: Sequelize.STRING
+      },
+      refresh_token: {
         type: Sequelize.STRING
       },
       createdAt: {

@@ -5,14 +5,14 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-// var authRouter = require('./routes/auth');
+var authRouter = require('./routes/auth');
 var indexRouter = require('./routes/index');
-// var satwaRouter = require('./routes/satwa');
+var sayurRouter = require('./routes/sayur');
 // var donasiRouter = require('./routes/donasi');
 var userRouter = require('./routes/users');
 // var satwaDonasiRouter = require('./routes/satwaDonasi');
-// var satwaGambarRouter = require('./routes/satwaGambar');
-// var predictRouter = require('./routes/predict');
+var sayurGambarRouter = require('./routes/sayurGambar');
+var predictRouter = require('./routes/predict');
 // var transaksiRouter = require('./routes/transaksi');
 
 var app = express();
@@ -39,14 +39,14 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// app.use('/auth', authRouter);
+app.use('/auth', authRouter);
 app.use('/', indexRouter);
-// app.use('/satwa', satwaRouter);
+app.use('/sayur', sayurRouter);
 // app.use('/donasi', donasiRouter);
 app.use('/user', userRouter);
 // app.use('/satwa-donasi', satwaDonasiRouter);
-// app.use('/satwa-gambar', satwaGambarRouter);
-// app.use('/predict', predictRouter);
+app.use('/sayur-gambar', sayurGambarRouter);
+app.use('/predict', predictRouter);
 // app.use('/transaksi', transaksiRouter);
 
 module.exports = app;
